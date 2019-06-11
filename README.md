@@ -42,6 +42,3 @@ https://cloud.docker.com/u/easonlai/repository/docker/easonlai/sb-web-sample-01-
 ```shell
 kubectl apply -f sb-web-sample-01-docker-oraclejdk-kube.yaml
 ```
-
-## Expose Internet Load Balancer in specific Subnet
-Updated deployment yaml file (sb-web-sample-01-docker-kube-private.yaml) which updated annotations to make it specify to ping Internal Load Balancer into specific subnet (service.beta.kubernetes.io/azure-load-balancer-internal-subnet).
