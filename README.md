@@ -31,7 +31,7 @@ docker build -t oracleserverjre8-oraclelinux7slim .
    ```
 2. Run docker image locally
    ```
-   docker run --rm -p 8080:8080 sb-web-sample-01-docker
+   docker run --rm -p 8080:8080 sb-web-sample-01-docker-oraclejdk
    ```
 3. Then you can access the web app at http://localhost:8080 in browser.
 
