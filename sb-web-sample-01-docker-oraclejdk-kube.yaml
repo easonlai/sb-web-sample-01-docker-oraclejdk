@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sb-web-sample-01-docker-oraclejdk
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  labels:
+    run: sb-web-sample-01-docker-oraclejdk
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    run: sb-web-sample-01-docker-oraclejdk
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sb-web-sample-01-docker-oraclejdk
+spec:
+  selector:
+    matchLabels:
+      run: sb-web-sample-01-docker-oraclejdk
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: sb-web-sample-01-docker-oraclejdk
+    spec:
+      containers:
+      - name: sb-web-sample-01-docker-oraclejdk
+        image: easonlai/sb-web-sample-01-docker-oraclejdk
+        ports:
+        - containerPort: 8080
